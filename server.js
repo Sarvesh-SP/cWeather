@@ -5,18 +5,18 @@ const argv = process.argv.slice(2)
 
 
 if (argv[0]) {
-  geocode(`${argv[0]}`, (error, data) => {
+  geocode(`${argv[0]}`, (error, {lat, lon, loc}) => {
 
     if (error) {
       return console.log(error);
     }
-  
-    forecast(data.latitude, data.longitude, (error, forecastData) => {
+    
+    forecast(lat, lon, (error, {temp, feels, des, time}) => {
       if (error) {
         return console.log(error);
       }
-      console.log(data.location)
-      console.log(forecastData)
+      console.log(loc)
+      console.log(temp, feels, des, time)
     })
   })
 } else {
