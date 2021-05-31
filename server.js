@@ -5,7 +5,7 @@ const argv = process.argv.slice(2)
 
 
 if (argv[0]) {
-  geocode(`${argv[0]}`, (error, {lat, lon, loc}) => {
+  geocode(`${argv[0]}`, (error, {lat, lon, loc} = {undefined, undefined, undefined}) => {
 
     if (error) {
       return console.log(error);
